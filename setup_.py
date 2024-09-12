@@ -17,7 +17,7 @@ def get_packages(file_path: str) -> List[str]:
         return requirements
 
 setup(
-    name="Oladipupo ML Project",
+    name="Crop Yield Prediction Project",
     version="0.1.1",
     author="Taofeek Opeyemi Olawoye",
     author_email="habephe21@gmail.com",
