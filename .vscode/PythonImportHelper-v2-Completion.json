@@ -1,0 +1,173 @@
+[
+    {
+        "label": "pandas",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "pandas",
+        "description": "pandas",
+        "detail": "pandas",
+        "documentation": {}
+    },
+    {
+        "label": "requests",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "requests",
+        "description": "requests",
+        "detail": "requests",
+        "documentation": {}
+    },
+    {
+        "label": "logging",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "logging",
+        "description": "logging",
+        "detail": "logging",
+        "documentation": {}
+    },
+    {
+        "label": "sqlalchemy",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "sqlalchemy",
+        "description": "sqlalchemy",
+        "detail": "sqlalchemy",
+        "documentation": {}
+    },
+    {
+        "label": "create_engine",
+        "importPath": "sqlalchemy",
+        "description": "sqlalchemy",
+        "isExtraImport": true,
+        "detail": "sqlalchemy",
+        "documentation": {}
+    },
+    {
+        "label": "text",
+        "importPath": "sqlalchemy",
+        "description": "sqlalchemy",
+        "isExtraImport": true,
+        "detail": "sqlalchemy",
+        "documentation": {}
+    },
+    {
+        "label": "create_db_engine",
+        "importPath": "data_ingestion",
+        "description": "data_ingestion",
+        "isExtraImport": true,
+        "detail": "data_ingestion",
+        "documentation": {}
+    },
+    {
+        "label": "query_data",
+        "importPath": "data_ingestion",
+        "description": "data_ingestion",
+        "isExtraImport": true,
+        "detail": "data_ingestion",
+        "documentation": {}
+    },
+    {
+        "label": "read_from_web_CSV",
+        "importPath": "data_ingestion",
+        "description": "data_ingestion",
+        "isExtraImport": true,
+        "detail": "data_ingestion",
+        "documentation": {}
+    },
+    {
+        "label": "config_params",
+        "importPath": "src.utils",
+        "description": "src.utils",
+        "isExtraImport": true,
+        "detail": "src.utils",
+        "documentation": {}
+    },
+    {
+        "label": "find_packages",
+        "importPath": "setuptools",
+        "description": "setuptools",
+        "isExtraImport": true,
+        "detail": "setuptools",
+        "documentation": {}
+    },
+    {
+        "label": "setup",
+        "importPath": "setuptools",
+        "description": "setuptools",
+        "isExtraImport": true,
+        "detail": "setuptools",
+        "documentation": {}
+    },
+    {
+        "label": "List",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "create_db_engine",
+        "kind": 2,
+        "importPath": "src.components.data_ingestion",
+        "description": "src.components.data_ingestion",
+        "peekOfCode": "def create_db_engine(db_path):\n    \"\"\"\n    Create a SQLAlchemy database engine.\n    Parameters:\n    - db_path (str): Database connection string.\n    Returns:\n    - sqlalchemy.engine.Engine: Database engine object\n    Examples:\n       >>> create_db_engine('sqlite:///example.db')\n    \"\"\"",
+        "detail": "src.components.data_ingestion",
+        "documentation": {}
+    },
+    {
+        "label": "query_data",
+        "kind": 2,
+        "importPath": "src.components.data_ingestion",
+        "description": "src.components.data_ingestion",
+        "peekOfCode": "def query_data(engine, sql_query: str) -> pd.DataFrame:\n    \"\"\"     \n    Execute a SQL query on the provided database engine and return the result as a DataFrame.\n    Returns a DataFrame corresponding to the result set of the query string with the help of the specified database engine.\n    Parameters:\n    - engine (sqlalchemy.engine.Engine): Database engine object.\n    - sql_query (str): SQL query string.\n    Returns:\n    - pandas.DataFrame: Result of the SQL query as a DataFrame after using the pandas.read_sql_query.\n    Examples:",
+        "detail": "src.components.data_ingestion",
+        "documentation": {}
+    },
+    {
+        "label": "read_from_web_CSV",
+        "kind": 2,
+        "importPath": "src.components.data_ingestion",
+        "description": "src.components.data_ingestion",
+        "peekOfCode": "def read_from_web_CSV(URL: str) -> pd.DataFrame:\n    \"\"\"\n    # summary\n    Read a CSV file from a given URL and return its contents as a DataFrame.\n    ### Args:\n        URL (str): URL pointing to a CSV file.\n    ### Raises:\n        pd.errors.EmptyDataError: If the URL does not point to a valid CSV file.\n        ValueError: If there's an issue retrieving data from the URL or if the response status code is not 200.\n        Exception: If there's a general error during the CSV reading process.",
+        "detail": "src.components.data_ingestion",
+        "documentation": {}
+    },
+    {
+        "label": "logger",
+        "kind": 5,
+        "importPath": "src.components.data_ingestion",
+        "description": "src.components.data_ingestion",
+        "peekOfCode": "logger = logging.getLogger('data_ingestion')\n# Set a basic logging message up that prints out a timestamp, the name of our logger, and the message\nlogging.basicConfig(level=logging.INFO, format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')\ndef create_db_engine(db_path):\n    \"\"\"\n    Create a SQLAlchemy database engine.\n    Parameters:\n    - db_path (str): Database connection string.\n    Returns:\n    - sqlalchemy.engine.Engine: Database engine object",
+        "detail": "src.components.data_ingestion",
+        "documentation": {}
+    },
+    {
+        "label": "FieldDataProcessor",
+        "kind": 6,
+        "importPath": "src.components.field_data_preprocessor",
+        "description": "src.components.field_data_preprocessor",
+        "peekOfCode": "class FieldDataProcessor:\n    def __init__(self, config_params, log_level=\"INFO\"):  # Make sure to add this line, passing in config_params to the class \n        self.db_path = config_params['db_path']\n        self.sql_query = config_params[\"sql_query\"]\n        self.columns_to_rename = config_params[\"columns_to_rename\"]\n        self.values_to_rename = config_params[\"values_to_rename\"]\n        self.weather_map_data = config_params[\"weather_mapping_csv\"]\n        self.weather_station_data = config_params[\"weather_csv_path\"]\n        self.initialize_logging(log_level)\n        # We create empty objects to store the DataFrame and engine in",
+        "detail": "src.components.field_data_preprocessor",
+        "documentation": {}
+    },
+    {
+        "label": "config_params",
+        "kind": 5,
+        "importPath": "src.utils",
+        "description": "src.utils",
+        "peekOfCode": "config_params = {\n}",
+        "detail": "src.utils",
+        "documentation": {}
+    },
+    {
+        "label": "get_packages",
+        "kind": 2,
+        "importPath": "setup_",
+        "description": "setup_",
+        "peekOfCode": "def get_packages(file_path: str) -> List[str]:\n    \"\"\"\n    ### Retrieve all package dependencies from a requirements.txt file.\n    Args:\n        file_path (str): Path to the requirements.txt file.\n    Returns:\n        List[str]: A list of package names without version specifiers or \"-e .\".\n    \"\"\"\n    with open(file_path, \"r\") as file_obj:\n        requirements = file_obj.readlines()",
+        "detail": "setup_",
+        "documentation": {}
+    }
+]
