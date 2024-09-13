@@ -84,6 +84,23 @@
         "documentation": {}
     },
     {
+        "label": "sys",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "sys",
+        "description": "sys",
+        "detail": "sys",
+        "documentation": {}
+    },
+    {
+        "label": "logger",
+        "importPath": "src",
+        "description": "src",
+        "isExtraImport": true,
+        "detail": "src",
+        "documentation": {}
+    },
+    {
         "label": "find_packages",
         "importPath": "setuptools",
         "description": "setuptools",
@@ -150,6 +167,24 @@
         "description": "src.components.field_data_preprocessor",
         "peekOfCode": "class FieldDataProcessor:\n    def __init__(self, config_params, log_level=\"INFO\"):  # Make sure to add this line, passing in config_params to the class \n        self.db_path = config_params['db_path']\n        self.sql_query = config_params[\"sql_query\"]\n        self.columns_to_rename = config_params[\"columns_to_rename\"]\n        self.values_to_rename = config_params[\"values_to_rename\"]\n        self.weather_map_data = config_params[\"weather_mapping_csv\"]\n        self.weather_station_data = config_params[\"weather_csv_path\"]\n        self.initialize_logging(log_level)\n        # We create empty objects to store the DataFrame and engine in",
         "detail": "src.components.field_data_preprocessor",
+        "documentation": {}
+    },
+    {
+        "label": "CustomException",
+        "kind": 6,
+        "importPath": "src.exceptions",
+        "description": "src.exceptions",
+        "peekOfCode": "class CustomException(Exception):\n    def __init__(self, error_message, error_detail:sys):\n        super().__init__(error_message) \n        self.error_message = error_message_detail(error_message, error_detail=error_detail)  \n    def __str__(self):\n        return self.error_message \n# To test the code above\n# if __name__ == '__main__':\n#     try:\n#         a = 1/0",
+        "detail": "src.exceptions",
+        "documentation": {}
+    },
+    {
+        "label": "error_message_detail",
+        "kind": 2,
+        "importPath": "src.exceptions",
+        "description": "src.exceptions",
+        "peekOfCode": "def error_message_detail(error, error_detail: sys):\n    \"\"\"\n    Custom error handler to display the error message, \n    the line where the error occurred, and the file name.\n    Args:\n        error (Exception): The exception that was raised.\n        error_detail (sys): The sys module to extract error details.\n    Returns: \n        str: Custom error message containing file name, line number, and error message.\n    \"\"\"",
+        "detail": "src.exceptions",
         "documentation": {}
     },
     {
